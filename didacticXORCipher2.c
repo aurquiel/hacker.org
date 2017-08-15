@@ -9,6 +9,7 @@ This time, you will have to discover the key yourself*/
 #include <stdlib.h>
 #include <string.h>
 
+//struct to hold the words of the dictionary
 typedef struct listWordStruct{
     char* word;
 }listWord;
@@ -90,8 +91,10 @@ listWord myListWord[] = {
     {"this"}
 };
 
+//Number of structs in the array
 #define SIZEMYLISTWORD sizeof(myListWord)/sizeof(myListWord[0])
 
+//Function to look for matches in the dictionaty
 int filterResult(char* s, listWord* myListWord);
 
 int main(int argc, char* argv[])
