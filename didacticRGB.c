@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 /*Challenge 'Didactic RGB' [Crypto]
 Do you see the single-color image below?
 
@@ -13,6 +10,9 @@ each, which equals 24 bits of data total. What to do with those 24 bits? For thi
 challenge, express it as a decimal integer. That is your answer. (In other words,
 the answer looks something like '12345678'. These are all 24 bits considered as one
 single number in decimal.) */
+
+#include <stdio.h>
+#include <stdlib.h>
 
 int main()
 {
