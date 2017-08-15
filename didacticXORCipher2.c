@@ -13,16 +13,37 @@ int main(int argc, char* argv[])
 {
 	const char str[] = "948881859781c4979186898d90c4c68c85878f85808b8b808881c6c4828b96c4908c8d97c4878c858888818a8381";
 
-	for(int i=0; i<strlen(str) ; i+=2)
+	for (int key=0; key<256; key ++) //look all the possibilities of combinations 256 1 Byte Key
 	{
-        	char* bytes= (char*)malloc((3)*sizeof(char));
-        	strncpy(bytes,str+i,2);
-        	int num = (int)strtol(bytes,NULL,16);
-        	printf("%c",num^0xe4);//I just did it with the ascii table and the gonme-calculator mode programmer:)
-        	free(bytes);
-	}
+		char* decrypterStr = (char*)malloc((sizeof(str)/2)+1); //Allocate space to the string decrypter
+		int iteratorDecrypter = 0;
 
-	printf("\n");
+		for(int i=0; i<strlen(str) ; i+=2)//Take bytes fron string
+		{
+			char* bytes= (char*)malloc((3)*sizeof(char));
+			strncpy(bytes,str+i,2); //cpy the byte take to sthe char array *bytes
+			int num = (int)strtol(bytes,NULL,16);  //transfor form char base 16 value to int
+
+			if ( ((num^key)>31) && ((num^key)<127) )
+    			{
+				*(decrypterStr + iteratorDecrypter) = (num^key);
+				iteratorDecrypter++;
+    			}
+    			else
+    			{
+				free(bytes);
+				*decrypterStr = '\0';
+				break;
+    			}
+
+			free(bytes);
+		}		
+
+		if (*decrypterStr != '\0')
+    			printf("%s   KEY: %d\n", decrypterStr, key);
+
+		free(decrypterStr);
+	}
 
 	return EXIT_SUCCESS;
 }
