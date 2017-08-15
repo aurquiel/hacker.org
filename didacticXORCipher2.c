@@ -130,7 +130,7 @@ int main(int argc, char* argv[])
 
 		if (*decrypterStr != '\0' && filterResult(decrypterStr, myListWord))
 		{
-            printf("%s KEY: %d\n",decrypterStr, key);
+            		printf("%s KEY: %d\n",decrypterStr, key);
 		}
 
 
