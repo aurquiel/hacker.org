@@ -21,12 +21,12 @@ int main(int argc, char* argv[])
 		for(int i=0; i<strlen(str) ; i+=2)//Take bytes fron string
 		{
 			char* bytes= (char*)malloc((3)*sizeof(char));
-			strncpy(bytes,str+i,2); //cpy the byte take to sthe char array *bytes
-			int num = (int)strtol(bytes,NULL,16);  //transfor form char base 16 value to int
+			strncpy(bytes,str+i,2); //cpy the byte taked to str char array *bytes
+			int num = (int)strtol(bytes,NULL,16);  //transfor form char base 16 value to int value
 
 			if ( ((num^key)>31) && ((num^key)<127) )
     			{
-				*(decrypterStr + iteratorDecrypter) = (num^key);
+				*(decrypterStr + iteratorDecrypter) = (num^key); //wrie to possible answer
 				iteratorDecrypter++;
     			}
     			else
