@@ -15,7 +15,7 @@ word. */
 
 int main (void)
 {
-    int redValues[4] ={0xde0000,0xfa0000, 0xce0000, 0xd10000}; //I use GIMP t know the Hex code of colors
+    int redValues[4] ={0xde0000,0xfa0000, 0xce0000, 0xd10000}; //I use GIMP to know the Hex code of colors
 
     for (uint64_t i=0, result = 0; i<4; i++)
     {
