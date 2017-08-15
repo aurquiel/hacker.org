@@ -9,8 +9,94 @@ This time, you will have to discover the key yourself*/
 #include <stdlib.h>
 #include <string.h>
 
+typedef struct listWordStruct{
+    char* word;
+}listWord;
+
+listWord myListWord[] = {
+    {"a"},
+    {"aboard"},
+    {"about"},
+    {"above"},
+    {"across"},
+    {"after"},
+    {"against"},
+    {"along"},
+    {"amid"},
+    {"among"},
+    {"an"},
+    {"anti"},
+    {"around"},
+    {"as"},
+    {"at"},
+    {"before"},
+    {"behind"},
+    {"below"},
+    {"beneath"},
+    {"beside"},
+    {"besides"},
+    {"between"},
+    {"beyond"},
+    {"but"},
+    {"by"},
+    {"concerning"},
+    {"considering"},
+    {"despite"},
+    {"down"},
+    {"during"},
+    {"except"},
+    {"excepting"},
+    {"excluding"},
+    {"following"},
+    {"for"},
+    {"from"},
+    {"in"},
+    {"inside"},
+    {"into"},
+    {"like"},
+    {"minus"},
+    {"near"},
+    {"of"},
+    {"off"},
+    {"on"},
+    {"onto"},
+    {"opposite"},
+    {"outside"},
+    {"over"},
+    {"past"},
+    {"per"},
+    {"plus"},
+    {"regarding"},
+    {"round"},
+    {"save"},
+    {"since"},
+    {"than"},
+    {"through"},
+    {"to"},
+    {"toward"},
+    {"towards"},
+    {"under"},
+    {"underneath"},
+    {"unlike"},
+    {"until"},
+    {"up"},
+    {"upon"},
+    {"versus"},
+    {"via"},
+    {"with"},
+    {"within"},
+    {"without"},
+    {"the"},
+    {"this"}
+};
+
+#define SIZEMYLISTWORD sizeof(myListWord)/sizeof(myListWord[0])
+
+int filterResult(char* s, listWord* myListWord);
+
 int main(int argc, char* argv[])
 {
+
 	const char str[] = "948881859781c4979186898d90c4c68c85878f85808b8b808881c6c4828b96c4908c8d97c4878c858888818a8381";
 
 	for (int key=0; key<256; key ++) //look all the possibilities of combinations 256 1 Byte Key
@@ -37,13 +123,35 @@ int main(int argc, char* argv[])
     			}
 
 			free(bytes);
-		}		
+		}
 
-		if (*decrypterStr != '\0')
-    			printf("%s   KEY: %d\n", decrypterStr, key);
+		if (*decrypterStr != '\0' && filterResult(decrypterStr, myListWord))
+		{
+            printf("%s KEY: %d\n",decrypterStr, key);
+		}
+
 
 		free(decrypterStr);
 	}
 
 	return EXIT_SUCCESS;
+}
+
+int filterResult(char* s, listWord* p_myListWord)
+{
+    char* pointerWord;
+
+    for (int i=0; i<SIZEMYLISTWORD; i++)
+    {
+        if( (pointerWord = strstr(s, (p_myListWord+i)->word)) )
+        {
+            if (*(pointerWord + strlen((p_myListWord+i)->word)) == ' ')
+            {
+                printf("Dictionary word founded: %s\n",(p_myListWord+i)->word);
+                return 1;
+            }
+        }
+    }
+
+    return 0;
 }
