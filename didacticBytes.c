@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 /*Challenge 'Didactic Bytes' [Crypto]
 
 Let us take the following three decimal numbers:
@@ -14,6 +11,9 @@ The 199 byte is the high byte (most significant) and
 so forth. Please enter that 24-bit integer in decimal
 form, and that is your answer. (Hint: your answer will
  not be '19977202'!) */
+
+#include <stdio.h>
+#include <stdlib.h>
 
 void combinedFunction (int);
 
