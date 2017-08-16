@@ -15,22 +15,10 @@ form, and that is your answer. (Hint: your answer will
 #include <stdio.h>
 #include <stdlib.h>
 
-void combinedFunction (int);
-
 int a = 199, b = 77, c= 202;
-int combined;
 
 int main()
 {
-    combinedFunction(a);
-    combinedFunction(b);
-    combinedFunction(c);
-
-    printf("%d\n",combined);
-    return 0;
-}
-
-void combinedFunction (int x)
-{
-    combined=((combined<<8)|x);
+    printf("%d\n", (((a<<8)|b)<<8)|c);
+    return EXIT_SUCCESS;
 }
