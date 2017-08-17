@@ -88,7 +88,7 @@ listWord myListWord[]={
     {"within"},
     {"without"},
     {"the"},
-{"this"}
+    {"this"}
 };
 
 #define NUMBER_OF_ELEMENTS sizeof(myListWord)/sizeof(myListWord[0])
