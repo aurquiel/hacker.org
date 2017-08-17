@@ -16,7 +16,7 @@ d */
 
 int main(int argc, char* argv[])
 {
-    /*i just were adding bytes to the string to got an output when i din'nt have an output it was due to the missing 0, annother hand the string is corrupted and the end.*/
+    /*i just were adding bytes to the string to got an output when i dinn't have an output it was due to the missing 0, for annother part the string is corrupted.*/
     const char* string = "8d541ae26426f8b97426b7ae7240d78e401f8f904717d09b2fa4a4622cfcbf7337fbba020cdbcb4e3cdb994812b66a27e9e02f21faf8712bd290070f";
                                                                                         //      0 0                                           0 0
     char* myByte = (char*)malloc(3); //allocate memory for the bye to read.
